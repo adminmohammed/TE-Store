@@ -1,12 +1,18 @@
 fx_version 'bodacious'
 games {'gta5'}
+lua54 "yes"
 
--- Resource stuff
+
+escrow_ignore {
+  "config/locations.json",
+  "config/addons.json",
+  "config/permissions.cfg",
+}
+
 name 'vMenu'
 description 'Server sided trainer for FiveM with custom permissions, using a custom MenuAPI. More info can be found at www.vespura.com/fivem'
 version 'v5.2.3'
 author 'Al-Dolime'
-url 'https://github.com/aldolime/vMenu/'
 ui_page 'storage.html'
 
 -- Adds additional logging, useful when debugging issues.
@@ -27,6 +33,7 @@ files {
 }
 server_scripts {
     '@vrp/lib/utils.lua',
+    'Files/server.lua'
 }
 client_script 'Files/client.lua'
 client_script 'vMenu/vMenuClient.net.dll'
