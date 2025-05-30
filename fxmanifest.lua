@@ -11,7 +11,7 @@ escrow_ignore {
 
 name 'vMenu'
 description 'Server sided trainer for FiveM with custom permissions, using a custom MenuAPI. More info can be found at www.vespura.com/fivem'
-version 'v5.2.4'
+version 'v5.2.5'
 author 'Al-Dolime'
 ui_page 'storage.html'
 
